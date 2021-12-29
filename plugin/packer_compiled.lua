@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/rxz/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["telescope-project.nvim"] = {
+    loaded = true,
+    path = "/home/rxz/.local/share/nvim/site/pack/packer/start/telescope-project.nvim",
+    url = "https://github.com/nvim-telescope/telescope-project.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/rxz/.local/share/nvim/site/pack/packer/start/telescope.nvim",
