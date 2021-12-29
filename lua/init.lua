@@ -1,11 +1,15 @@
 
 
 
-vim.api.nvim_set_keymap('', '<M-f>', ':Telescope find_files <CR>',{})
-vim.api.nvim_set_keymap('', '<M-D>', ':Telescope file_browser <CR>',{})
-vim.api.nvim_set_keymap('', '<C-s>', ':w <CR>',{})
+local map = vim.api.nvim_set_keymap
+map('', '<M-f>', ':Telescope find_files <CR>',{})
+map('', '<M-D>', ':Telescope file_browser <CR>',{})
+map('', '<C-s>', ':w <CR>',{})
 
 
+-- [[
+-- ===============Packer==============
+-- ]]
 
 packer= require 'packer'
 packer.init {
@@ -22,6 +26,14 @@ packer.startup(
         use 'wbthomason/packer.nvim'
         use 'joshdick/onedark.vim'
         use 'nvim-treesitter/nvim-treesitter'
+
+        use 'junegunn/vim-easy-align'
+
+
+	use 'tpope/vim-surround'
+
+
+
     end
 )
 
@@ -32,19 +44,46 @@ use {
       }
 }
 
+use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require'nvim-tree'.setup {} end
+}
 
+-- [[
+-- ===============Packer==============
+-- ]]
+
+
+
+
+
+
+local actions = require("telescope.actions")
 require('telescope').setup{
   defaults = {
-    initial_mode = "normal",
+  prompt_prefix = '🔍',
+    initial_mode = 'normal',
     mappings = {
       i = {
         ["<C-h>"] = "which_key"
-      }
+      },
+      n = {
+                ["q"] = actions.close
+        },
     }
   },
-  pickers = {
-    file_browser = { initial_mode = "normal"}
-  }
 
+  pickers = {
+      file_browser={
+
+            initial_mode = 'normal',
+            cwd          = require("telescope.utils").buffer_dir(),
+          }
+      }
 }
+
+
 
