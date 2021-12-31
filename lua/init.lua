@@ -39,11 +39,14 @@ packer.startup(
         use 'nvim-treesitter/nvim-treesitter'
         use 'junegunn/vim-easy-align'
         use 'tpope/vim-surround'
-        use 'vim-airline/vim-airline'
-        use 'vim-airline/vim-airline-themes'
     end
 )
 
+
+
+use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+vim.opt.termguicolors = true
+require("bufferline").setup{}
 use { "nvim-telescope/telescope-file-browser.nvim" }
 use {
       'nvim-telescope/telescope.nvim',
@@ -52,12 +55,18 @@ use {
       }
 }
 
+
 use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
     config = function() require'nvim-tree'.setup {} end
+}
+
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = {'kyazdani42/nvim-web-devicons', opt = true}
 }
 
 -- [[
@@ -83,10 +92,6 @@ require'nvim-tree'.setup {
     }
   }
 }
-
-
-
-
 
 
 vim.api.nvim_set_keymap(
@@ -116,4 +121,31 @@ require('telescope').setup{
 }
 
 
-
+require'lualine'.setup {
+  options = {
+    -- icons_enabled = true,
+    theme = 'everforest',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}

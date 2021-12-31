@@ -32,10 +32,7 @@ colorscheme onedark
 source $HOME/.config/nvim/themes/airline.vim
 
 
-
-
-
-
+set clipboard+=unnamedplus
 "----------------------------------------------------------------------
 " Mitchell Hashimoto's config
 "----------------------------------------------------------------------
