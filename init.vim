@@ -7,8 +7,6 @@
 :imap jj <Esc>
 :imap kk <Esc>
 :map Y Y$
-:inoremap <C-s> <C-o>:w<CR>
-
 lua require('init')
 
 
@@ -31,6 +29,7 @@ let g:onedark_termcolors=256
 syntax on
 colorscheme onedark
 
+source $HOME/.config/nvim/themes/airline.vim
 
 
 
