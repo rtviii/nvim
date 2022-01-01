@@ -4,6 +4,10 @@
 :xnoremap K 5k
 :xnoremap J 5j
 
+
+:xnoremap <C-K> K
+:xnoremap <C-J> J
+
 :imap jj <Esc>
 :imap kk <Esc>
 :map Y Y$
@@ -29,7 +33,6 @@ let g:onedark_termcolors=256
 syntax on
 colorscheme onedark
 
-source $HOME/.config/nvim/themes/airline.vim
 
 
 set clipboard+=unnamedplus
