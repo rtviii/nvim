@@ -24,6 +24,8 @@ vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function()
   -- Packer can manage itself
+      use 'folke/tokyonight.nvim'
+      use 'arcticicestudio/nord-vim'
       use 'wbthomason/packer.nvim'
       use 'joshdick/onedark.vim'
       use 'junegunn/vim-easy-align'
@@ -39,7 +41,6 @@ end)
 
 local packer = require('packer')
 
- vim.opt.termguicolors = true
 
  packer.use {
        'nvim-lualine/lualine.nvim',
@@ -202,7 +203,7 @@ cmp.setup {
  require'lualine'.setup {
    options = {
      -- icons_enabled = true,
-     theme = 'everforest',
+     theme = 'tokyonight',
      component_separators = { left = '', right = ''},
      section_separators = { left = '', right = ''},
      disabled_filetypes = {},
@@ -228,3 +229,12 @@ cmp.setup {
    extensions = {}
  }
 
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+
+-- Change the "hint" color to the "orange" color, and make the "error" color bright red
+vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+
+-- Load the colorscheme
+vim.cmd[[colorscheme tokyonight]]
