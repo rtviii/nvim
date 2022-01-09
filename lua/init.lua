@@ -15,11 +15,6 @@ map('', '<C-l>', ':wincmd l<CR>',{})
 map('', '<C-s>', ':w <CR>',{})
 
 
-
-
-
-
-
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function()
@@ -42,31 +37,36 @@ end)
 local packer = require('packer')
 
 
- packer.use {
+packer.use {
+
        'nvim-lualine/lualine.nvim',
        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+
      }
 
 
 
 packer.use {
+
      'nvim-telescope/telescope.nvim',
      requires = {{'nvim-lua/plenary.nvim'},}
+
   }
 
 packer.use { "nvim-telescope/telescope-file-browser.nvim" }
 
-packer.use {   'akinsho/bufferline.nvim',
+packer.use { 'akinsho/bufferline.nvim',
+
       requires = 'kyazdani42/nvim-web-devicons'
+
   }
+
  packer.use {   'kyazdani42/nvim-tree.lua',
          requires = {
            'kyazdani42/nvim-web-devicons', -- optional, for file icon
          },
          config = function() require'nvim-tree'.setup {} end
      }
-
-
 
      -------------------------- LSP
 
@@ -107,6 +107,7 @@ cmp.setup {
     end,
   },
   mapping = {
+
     ['<A-k>'] = cmp.mapping.select_prev_item(),
     ['<A-j>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
