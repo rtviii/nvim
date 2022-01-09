@@ -21,6 +21,63 @@ map('', '<C-l>', ':wincmd l<CR>',{})
 map('', '<C-s>', ':w <CR>',{})
 
 
+--[[
+require('packer').startup(function()
+  -- Packer can manage itself
+      use 'folke/tokyonight.nvim'
+      use 'arcticicestudio/nord-vim'
+      use 'wbthomason/packer.nvim'
+      use 'joshdick/onedark.vim'
+      use 'junegunn/vim-easy-align'
+      use 'tpope/vim-surround'
+      use 'nvim-treesitter/nvim-treesitter'
+      use 'glepnir/lspsaga.nvim'
+      use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+      use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+      use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+      use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+      use 'L3MON4D3/LuaSnip' -- Snippets plugin
+end)
+
+local packer = require('packer')
+
+
+packer.use {
+       'nvim-lualine/lualine.nvim',
+       requires = {'kyazdani42/nvim-web-devicons', opt = true}
+     }
+
+
+
+packer.use {
+
+     'nvim-telescope/telescope.nvim',
+     requires = {{'nvim-lua/plenary.nvim'},}
+
+  }
+
+packer.use { "nvim-telescope/telescope-file-browser.nvim" }
+
+packer.use { 'akinsho/bufferline.nvim',
+
+      requires = 'kyazdani42/nvim-web-devicons'
+
+  }
+
+ packer.use {   'kyazdani42/nvim-tree.lua',
+         requires = {
+           'kyazdani42/nvim-web-devicons', -- optional, for file icon
+         },
+         config = function() require'nvim-tree'.setup {} end
+     }
+
+ --]]
+ --
+ --
+ --
+ --
+ --
+     -------------------------- LSP
 
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.rust_analyzer.setup{}

@@ -11,18 +11,13 @@
 :imap jj <Esc>
 :imap kk <Esc>
 :map Y Y$
-lua require('init')
 
-
-
+:lua require('init')
 
 hi Comment cterm=italic
-
 syntax on
-
-
-
 set clipboard+=unnamedplus
+
 "----------------------------------------------------------------------
 " Mitchell Hashimoto's config
 "----------------------------------------------------------------------
